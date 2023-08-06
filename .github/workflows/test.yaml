@@ -7,10 +7,13 @@ jobs:
     - name: get code
       uses: action/checkout@v3
 
-    - name: install dependencies
-      uses: action/set-upNode@v3
+    - name: install node js
+      uses: action/setup-node@v3
       with:
        node-version: 18
 
-    - name: test 
+    - name: install dependencies
+      run: npm ci
+
+    - name: run tests
       run: npm test
